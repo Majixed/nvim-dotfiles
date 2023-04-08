@@ -43,16 +43,18 @@ filetype indent on
 
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? '\<Tab>' :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: '\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>'
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+autocmd TermOpen * setlocal nonumber
 
 let g:version = matchstr(execute('version'), 'NVIM v\zs[^\n]*')
 
@@ -103,7 +105,7 @@ require('dashboard').setup {
         action = 'Telescope live_grep',
       },
       {
-        icon = '󰈢  ',
+        icon = '󱋡  ',
         desc = 'Recent files',
         action = 'Telescope oldfiles',
       },
@@ -181,7 +183,7 @@ require('barbar').setup {
 vim.api.nvim_create_autocmd('BufWinEnter', {
   callback = function(tbl)
     if vim.bo[tbl.buf].filetype == 'NvimTree' then
-      require'bufferline.api'.set_offset(30, 'File Tree')
+      require'bufferline.api'.set_offset(30)
     end
   end
 })
