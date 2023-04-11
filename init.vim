@@ -7,6 +7,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
@@ -57,6 +58,11 @@ endfunction
 autocmd TermOpen * setlocal nonumber
 
 let g:version = matchstr(execute('version'), 'NVIM v\zs[^\n]*')
+
+let g:loaded_python3_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_node_provider = 0
+let g:loaded_perl_provider = 0
 
 lua << EOF
 vim.g.loaded_netrw = 1
