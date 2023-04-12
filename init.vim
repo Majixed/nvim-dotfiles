@@ -183,7 +183,27 @@ require('lualine').setup {
 }
 
 require('barbar').setup {
-  no_name_title = '[No Name]'
+  no_name_title = '[No Name]',
+  icons = {
+    buffer_index = false,
+    buffer_number = false,
+
+    filetype = {
+      custom_colors = false,
+
+      enabled = true,
+    },
+    separator = { left = '', right = '▕' },
+
+    pinned = { buffer_index = true, filename = true, separator = { left = '', right = '▕' } },
+
+    alternate = { filetype = { enabled = false } },
+    current = { buffer_index = false },
+    inactive = { separator = { left = '', right = '▕' } },
+    visible = { modified = { buffer_number = false } },
+  },
+  exclude_ft = { 'netrw' },
+  highlight_visible = false,
 }
 
 vim.api.nvim_create_autocmd('BufWinEnter', {
@@ -194,7 +214,7 @@ vim.api.nvim_create_autocmd('BufWinEnter', {
   end
 })
 
-vim.api.nvim_create_autocmd({'BufWinLeave', 'BufWipeout'}, {
+vim.api.nvim_create_autocmd({ 'BufWinLeave', 'BufWipeout' }, {
   callback = function(tbl)
     if vim.bo[tbl.buf].filetype == 'NvimTree' then
       require'bufferline.api'.set_offset(0)
