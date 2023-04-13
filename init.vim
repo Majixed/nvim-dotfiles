@@ -184,10 +184,17 @@ require('lualine').setup {
 
 require('barbar').setup {
   no_name_title = '[No Name]',
+  hide = { extensions = true },
   icons = {
     buffer_index = false,
     buffer_number = false,
-
+    button = '',
+    diagnostics = {
+      [vim.diagnostic.severity.ERROR] = { enabled = true, icon = 'ﬀ' },
+      [vim.diagnostic.severity.WARN] = { enabled = false },
+      [vim.diagnostic.severity.INFO] = { enabled = false },
+      [vim.diagnostic.severity.HINT] = { enabled = false },
+    },
     filetype = {
       custom_colors = false,
 
@@ -195,11 +202,12 @@ require('barbar').setup {
     },
     separator = { left = '', right = '▕' },
 
-    pinned = { buffer_index = true, filename = true, separator = { left = '', right = '▕' } },
+    modified = { button = '●' },
+    pinned = { buffer_index = true, filename = true, button = '', separator = { left = '', right = '▕' } },
 
     alternate = { filetype = { enabled = false } },
     current = { buffer_index = false },
-    inactive = { separator = { left = '', right = '▕' } },
+    inactive = { button = '', separator = { left = '', right = '▕' } },
     visible = { modified = { buffer_number = false } },
   },
   exclude_ft = { 'netrw' },
