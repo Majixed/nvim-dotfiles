@@ -11,6 +11,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
 
 call plug#end()
 
@@ -67,6 +68,27 @@ let g:loaded_perl_provider = 0
 lua << EOF
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+require('telescope').setup {
+  defaults = {
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+    }
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,
+    }
+  }
+}
+
+require('telescope').load_extension('fzf')
 
 require('dashboard').setup {
   theme = 'doom',
