@@ -60,7 +60,8 @@ autocmd TermOpen * setlocal nonumber
 
 let g:version = matchstr(execute('version'), 'NVIM v\zs[^\n]*')
 
-let g:loaded_python3_provider = 0
+let g:python3_host_prog = '/usr/bin/python3'
+
 let g:loaded_ruby_provider = 0
 let g:loaded_node_provider = 0
 let g:loaded_perl_provider = 0
@@ -210,7 +211,7 @@ require('barbar').setup {
   icons = {
     buffer_index = false,
     buffer_number = false,
-    button = '',
+    button = '󰅖',
     diagnostics = {
       [vim.diagnostic.severity.ERROR] = { enabled = true, icon = 'ﬀ' },
       [vim.diagnostic.severity.WARN] = { enabled = false },
@@ -222,14 +223,14 @@ require('barbar').setup {
 
       enabled = true,
     },
-    separator = { left = '', right = '▕' },
+    separator = { left = '', right = '' },
 
     modified = { button = '●' },
-    pinned = { buffer_index = true, filename = true, button = '', separator = { left = '', right = '▕' } },
+    pinned = { buffer_index = true, filename = true, button = '󰅖', separator = { left = '', right = '' } },
 
     alternate = { filetype = { enabled = false } },
     current = { buffer_index = false },
-    inactive = { button = '', separator = { left = '', right = '▕' } },
+    inactive = { button = '󰅖', separator = { left = '', right = '' } },
     visible = { modified = { buffer_number = false } },
   },
   exclude_ft = { 'netrw' },
