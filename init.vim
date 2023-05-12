@@ -52,15 +52,16 @@ let g:python3_host_prog = '/usr/bin/python3'
 let g:coq_settings = {
   \'auto_start': 'shut-up',
   \'display.preview.border': [
-    \["", "NormalFloat"],
-    \["", "NormalFloat"],
-    \["", "NormalFloat"],
-    \[" ", "NormalFloat"],
-    \["", "NormalFloat"],
-    \["", "NormalFloat"],
-    \["", "NormalFloat"],
-    \[" ", "NormalFloat"]
-  \]
+    \['' , 'NormalFloat'],
+    \['' , 'NormalFloat'],
+    \['' , 'NormalFloat'],
+    \[' ', 'NormalFloat'],
+    \['' , 'NormalFloat'],
+    \['' , 'NormalFloat'],
+    \['' , 'NormalFloat'],
+    \[' ', 'NormalFloat']
+  \],
+  \'display.icons.mode': 'none'
 \}
 
 let g:loaded_ruby_provider = 0
