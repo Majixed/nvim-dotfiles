@@ -48,8 +48,20 @@ filetype indent on
 autocmd TermOpen * setlocal nonumber
 
 let g:version = matchstr(execute('version'), 'NVIM v\zs[^\n]*')
-let g:coq_settings = { 'auto_start': 'shut-up' }
 let g:python3_host_prog = '/usr/bin/python3'
+let g:coq_settings = {
+  \'auto_start': 'shut-up',
+  \'display.preview.border': [
+    \["", "NormalFloat"],
+    \["", "NormalFloat"],
+    \["", "NormalFloat"],
+    \[" ", "NormalFloat"],
+    \["", "NormalFloat"],
+    \["", "NormalFloat"],
+    \["", "NormalFloat"],
+    \[" ", "NormalFloat"]
+  \]
+\}
 
 let g:loaded_ruby_provider = 0
 let g:loaded_node_provider = 0
