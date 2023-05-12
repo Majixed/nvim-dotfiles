@@ -8,6 +8,9 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'jiangmiao/auto-pairs'
+Plug 'ms-jpq/coq_nvim', { 'branch': 'coq' }
+Plug 'ms-jpq/coq.thirdparty', { 'branch': '3p' }
+Plug 'ms-jpq/coq.artifacts', { 'branch': 'artifacts' }
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
@@ -45,7 +48,7 @@ filetype indent on
 autocmd TermOpen * setlocal nonumber
 
 let g:version = matchstr(execute('version'), 'NVIM v\zs[^\n]*')
-
+let g:coq_settings = { 'auto_start': 'shut-up' }
 let g:python3_host_prog = '/usr/bin/python3'
 
 let g:loaded_ruby_provider = 0
@@ -244,6 +247,8 @@ require('nvim-treesitter.configs').setup {
     enable = true,
   },
 }
+
+require('coq')
 EOF
 
 colorscheme catppuccin-macchiato
