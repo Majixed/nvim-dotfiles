@@ -61,7 +61,7 @@ let g:coq_settings = {
       \],
       \ 'auto_start': 'shut-up',
       \ 'display.icons.mode': 'none',
-      \}
+    \}
 
 let g:version = matchstr(execute('version'), 'NVIM v\zs[^\n]*')
 let g:python3_host_prog = '/usr/bin/python3'

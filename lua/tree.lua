@@ -7,9 +7,9 @@ local function open_nvim_tree(data)
   if not directory then
     return
   end
-  
+
   vim.cmd.cd(data.file)
-      
+
   require('nvim-tree.api').tree.open()
 
 end
