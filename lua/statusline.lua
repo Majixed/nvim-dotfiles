@@ -1,6 +1,6 @@
 local lualine = require('lualine')
 
-local colors = {
+local catppuccin_colors = {
   bg       = '#1e2030',
   fg       = '#cad3f5',
   yellow   = '#eed49f',
@@ -13,6 +13,8 @@ local colors = {
   blue     = '#8aadf4',
   red      = '#ed8796',
 }
+
+local colors = catppuccin_colors
 
 local conditions = {
   buffer_not_empty = function()

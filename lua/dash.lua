@@ -58,10 +58,6 @@ local config = {
         action = 'q',
       },
     },
-    footer = {
-      [[]],
-      [[v]] .. vim.g.version,
-    }
   },
 }
 
