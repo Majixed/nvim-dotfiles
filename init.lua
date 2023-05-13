@@ -1,4 +1,4 @@
-vim.g.mapleader = " "
+vim.g.mapleader = ' '
 vim.g.coq_settings = {
   auto_start = 'shut-up',
   display = {
@@ -20,7 +20,7 @@ vim.g.coq_settings = {
   }
 }
 
-require("lazynvim")
+require('lazynvim')
 
 vim.cmd[[set noshowmode]]
 vim.cmd[[set nowrap]]
