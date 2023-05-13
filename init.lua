@@ -1,52 +1,10 @@
--- Example using a list of specs with the default options
-vim.g.mapleader = " " -- Make sure to vim.o `mapleader` before lazy so your mappings are correct
-
-require("bootstrap")
-require('lazy').setup {
-  {
-    'romgrk/barbar.nvim',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-  },
-  {
-    'glepnir/dashboard-nvim',
-    event = 'VimEnter',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons'
-    },
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
-    version = "*",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
-    },
-  },
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
-  },
-  {
-    'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
-    dependencies = 'nvim-lua/plenary.nvim'
-  },
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
-  },
-    'nvim-lua/plenary.nvim',
-    'neovim/nvim-lspconfig',
-    'jiangmiao/auto-pairs',
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-  { 'ms-jpq/coq_nvim', branch = 'coq' },
-  { 'ms-jpq/coq.artifacts', branch = 'artifacts' },
-  { 'ms-jpq/coq.thirdparty', branch = '3p' },
-  { 'catppuccin/nvim', name = 'catppuccin' },
+vim.g.mapleader = " "
+vim.g.coq_settings = {
+  auto_start = 'shut-up',
+  display = { icons = { mode = 'none' } }
 }
+
+require("lazynvim")
 
 vim.cmd[[set noshowmode]]
 vim.cmd[[set nowrap]]
