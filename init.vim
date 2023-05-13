@@ -6,6 +6,7 @@ Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ms-jpq/coq_nvim', { 'branch': 'coq' }
@@ -215,7 +216,7 @@ require('barbar').setup {
     buffer_number = false,
     button = '󰅖',
     diagnostics = {
-      [vim.diagnostic.severity.ERROR] = { enabled = true, icon = 'ﬀ' },
+      [vim.diagnostic.severity.ERROR] = { enabled = true, icon = '' },
       [vim.diagnostic.severity.WARN] = { enabled = false },
       [vim.diagnostic.severity.INFO] = { enabled = false },
       [vim.diagnostic.severity.HINT] = { enabled = false },
@@ -261,7 +262,11 @@ require('nvim-treesitter.configs').setup {
   },
 }
 
-require('coq')
+local lspconfig = require('lspconfig')
+local coq = require('coq')
+
+lspconfig.pyright.setup(coq.lsp_ensure_capabilities())
+lspconfig.vimls.setup(coq.lsp_ensure_capabilities())
 EOF
 
 colorscheme catppuccin-macchiato
