@@ -1,4 +1,5 @@
 vim.g.mapleader = ' '
+
 vim.g.coq_settings = {
   auto_start = 'shut-up',
   display = {
@@ -20,10 +21,9 @@ vim.g.coq_settings = {
   }
 }
 
-require('lazynvim')
+require('plugins')
 
 vim.cmd[[set noshowmode]]
-vim.cmd[[set nowrap]]
 vim.cmd[[set nowrap]]
 vim.cmd[[set number]]
 vim.cmd[[set nobackup]]
@@ -64,6 +64,6 @@ require('dash')
 require('statusline')
 require('tabline')
 require('lsp')
-require('tsitter')
+require('syntax')
 
 vim.cmd[[colorscheme catppuccin-macchiato]]
