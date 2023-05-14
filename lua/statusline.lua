@@ -6,6 +6,7 @@ local colors = {
   fg       = palette.text,
   yellow   = palette.yellow,
   cyan     = palette.teal,
+  gray     = palette.surface1,
   green    = palette.green,
   orange   = palette.peach,
   violet   = palette.mauve,
@@ -52,7 +53,7 @@ local config = {
     lualine_y = {},
     lualine_z = {},
     lualine_c = {},
-lualine_x = {},
+    lualine_x = {},
   },
 }
 
@@ -62,6 +63,10 @@ end
 
 local function ins_right(component)
   table.insert(config.sections.lualine_x, component)
+end
+
+local function ins_inactive_left(component)
+  table.insert(config.inactive_sections.lualine_c, component)
 end
 
 ins_left {
@@ -193,6 +198,12 @@ ins_right {
   end,
   color = { fg = colors.blue },
   padding = { left = 1 },
+}
+
+ins_inactive_left {
+  'filename',
+  cond = conditions.buffer_not_empty,
+  color = { fg = colors.gray, gui = 'bold' },
 }
 
 lualine.setup(config)
