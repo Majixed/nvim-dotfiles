@@ -1,20 +1,18 @@
 local lualine = require('lualine')
+local palette = require('catppuccin.palettes').get_palette 'macchiato'
 
-local catppuccin_colors = {
-  bg       = '#1e2030',
-  fg       = '#cad3f5',
-  yellow   = '#eed49f',
-  cyan     = '#8bd5ca',
-  darkblue = '#2a3054',
-  green    = '#a6da95',
-  orange   = '#f5a97f',
-  violet   = '#c6a0f6',
-  magenta  = '#f5bde6',
-  blue     = '#8aadf4',
-  red      = '#ed8796',
+local colors = {
+  bg       = palette.mantle,
+  fg       = palette.text,
+  yellow   = palette.yellow,
+  cyan     = palette.teal,
+  green    = palette.green,
+  orange   = palette.peach,
+  violet   = palette.mauve,
+  magenta  = palette.pink,
+  blue     = palette.blue,
+  red      = palette.red,
 }
-
-local colors = catppuccin_colors
 
 local conditions = {
   buffer_not_empty = function()
@@ -155,7 +153,7 @@ ins_left {
     return msg
   end,
   icon = ' LSP:',
-  color = { fg = '#ffffff', gui = 'bold' },
+  color = { fg = colors.fg, gui = 'bold' },
 }
 
 ins_right {

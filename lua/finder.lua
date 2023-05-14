@@ -22,21 +22,32 @@ local config = {
 telescope.setup(config)
 telescope.load_extension('fzf')
 
-local colors = require('catppuccin.palettes').get_palette 'macchiato'
-local TelescopeColor = {
-	TelescopeMatching = { fg = colors.flamingo },
-	TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
+local palette = require('catppuccin.palettes').get_palette 'macchiato'
 
-	TelescopePromptPrefix = { bg = colors.surface0 },
-	TelescopePromptNormal = { bg = colors.surface0 },
-	TelescopeResultsNormal = { bg = colors.mantle },
-	TelescopePreviewNormal = { bg = colors.mantle },
-	TelescopePromptBorder = { bg = colors.surface0, fg = colors.surface0 },
-	TelescopeResultsBorder = { bg = colors.mantle, fg = colors.mantle },
-	TelescopePreviewBorder = { bg = colors.mantle, fg = colors.mantle },
-	TelescopePromptTitle = { bg = colors.surface0, fg = colors.pink, bold = true },
-	TelescopeResultsTitle = { fg = colors.mantle },
-	TelescopePreviewTitle = { bg = colors.mantle, fg = colors.green, bold = true },
+local colors = {
+  bg       = palette.mantle,
+  fg       = palette.text,
+  pink     = palette.flamingo,
+  gray     = palette.surface0,
+  magenta  = palette.pink,
+  green    = palette.green,
+  red      = palette.red,
+}
+
+local TelescopeColor = {
+	TelescopeMatching = { fg = colors.pink },
+	TelescopeSelection = { fg = colors.fg, bg = colors.gray, bold = true },
+
+	TelescopePromptPrefix = { bg = colors.gray },
+	TelescopePromptNormal = { bg = colors.gray },
+	TelescopeResultsNormal = { bg = colors.bg },
+	TelescopePreviewNormal = { bg = colors.bg },
+	TelescopePromptBorder = { bg = colors.gray, fg = colors.gray },
+	TelescopeResultsBorder = { bg = colors.bg, fg = colors.bg },
+	TelescopePreviewBorder = { bg = colors.bg, fg = colors.bg },
+	TelescopePromptTitle = { bg = colors.gray, fg = colors.magenta, bold = true },
+	TelescopeResultsTitle = { fg = colors.bg },
+	TelescopePreviewTitle = { bg = colors.bg, fg = colors.green, bold = true },
 }
 
 for hl, col in pairs(TelescopeColor) do
