@@ -56,22 +56,31 @@ require('lazy').setup {
     build = ':TSUpdate'
   },
   {
-    'ms-jpq/coq_nvim',
-    branch = 'coq'
-  },
-  {
-    'ms-jpq/coq.artifacts',
-    branch = 'artifacts'
-  },
-  {
-    'ms-jpq/coq.thirdparty',
-    branch = '3p'
-  },
-  {
     'catppuccin/nvim',
     name = 'catppuccin'
   },
   {
     'neovim/nvim-lspconfig'
   },
+  {
+    'hrsh7th/cmp-nvim-lsp'
+  },
+  {
+    'hrsh7th/cmp-buffer'
+  },
+  {
+    'hrsh7th/cmp-path'
+  },
+  {
+    'hrsh7th/cmp-cmdline'
+  },
+  {
+    'hrsh7th/nvim-cmp'
+  },
+  {
+    'hrsh7th/cmp-vsnip'
+  },
+  {
+    'hrsh7th/vim-vsnip'
+  }
 }

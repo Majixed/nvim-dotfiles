@@ -1,26 +1,5 @@
 vim.g.mapleader = ' '
 
-vim.g.coq_settings = {
-  auto_start = 'shut-up',
-  display = {
-    icons = {
-      mode = 'none'
-    },
-    preview = {
-      border = {
-        { '' , 'NormalFloat' },
-        { '' , 'NormalFloat' },
-        { '' , 'NormalFloat' },
-        { ' ', 'NormalFloat' },
-        { '' , 'NormalFloat' },
-        { '' , 'NormalFloat' },
-        { '' , 'NormalFloat' },
-        { ' ', 'NormalFloat' },
-      }
-    }
-  }
-}
-
 require('plugins')
 
 vim.cmd[[set noshowmode]]
