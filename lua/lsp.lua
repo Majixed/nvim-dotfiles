@@ -46,4 +46,5 @@ local lua_ls_config = {
 
 lspconfig.pyright.setup { capabilities = capabilities }
 lspconfig.vimls.setup { capabilities = capabilities }
+lspconfig.texlab.setup{ capabilities = capabilities }
 lspconfig.lua_ls.setup(lua_ls_config)
