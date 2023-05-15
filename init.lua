@@ -1,6 +1,6 @@
 vim.g.mapleader = ' '
 
-require('plugins')
+require('lazy-nvim')
 
 vim.cmd[[set noshowmode]]
 vim.cmd[[set nowrap]]
@@ -36,13 +36,5 @@ vim.g.loaded_ruby_provider = 0
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
-require('finder')
-require('tree')
-require('dash')
-require('statusline')
-require('tabline')
-require('lsp')
-require('syntax')
 
 vim.cmd[[colorscheme catppuccin-macchiato]]
