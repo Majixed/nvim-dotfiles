@@ -36,7 +36,7 @@ return {
           else
             fallback()
           end
-        end, {'i', 's'}),
+        end, { 'i', 's' }),
 
         ['<S-Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -44,7 +44,7 @@ return {
           else
             fallback()
           end
-        end, {'i', 's'}),
+        end, { 'i', 's' }),
 
         ['<Down>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
