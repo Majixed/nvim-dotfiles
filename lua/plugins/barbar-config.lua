@@ -1,5 +1,6 @@
 return {
   'romgrk/barbar.nvim',
+  version = '^1.0.0',
   dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
     require('barbar').setup {

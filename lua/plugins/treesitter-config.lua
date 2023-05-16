@@ -15,6 +15,8 @@ return {
         'python',
         'latex',
         'markdown',
+        'markdown_inline',
+        'regex',
         'rst',
         'json',
       },
