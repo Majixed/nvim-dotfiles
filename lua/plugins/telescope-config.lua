@@ -29,7 +29,7 @@ return {
       },
       extensions = {
         fzf = {
-          fuzzy = true,
+          fuzzy = false,
         }
       }
     }
