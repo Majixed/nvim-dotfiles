@@ -19,8 +19,8 @@ return {
         'regex',
         'rst',
         'json',
+        'make',
       },
-      auto_install = true,
       highlight = {
         enable = true,
       },
