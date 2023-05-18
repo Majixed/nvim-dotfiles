@@ -5,7 +5,6 @@ return {
     require('nvim-tree').setup {}
 
     local function open_nvim_tree(data)
-
       local directory = vim.fn.isdirectory(data.file) == 1
 
       if not directory then
