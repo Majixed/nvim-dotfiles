@@ -6,15 +6,17 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/nvim-cmp',
-    'hrsh7th/cmp-vsnip',
-    'hrsh7th/vim-vsnip',
+    'saadparwaiz1/cmp_luasnip',
+    'L3MON4D3/LuaSnip',
     'folke/neodev.nvim',
     'onsails/lspkind.nvim',
+    'windwp/nvim-autopairs',
   },
   config = function()
     local lspconfig = require('lspconfig')
     local lspkind = require('lspkind')
-    local neodev = require('neodev')
+    local luasnip = require('luasnip')
+    local cmp_autopairs = require('nvim-autopairs.completion.cmp')
     local cmp = require('cmp')
 
     local has_words_before = function()
@@ -23,11 +25,12 @@ return {
       return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
     end
 
-    local feedkey = function(key, mode)
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-    end
+    require('neodev').setup {}
 
-    neodev.setup {}
+    cmp.event:on(
+      'confirm_done',
+      cmp_autopairs.on_confirm_done()
+    )
 
     cmp.setup {
       formatting = {
@@ -36,16 +39,16 @@ return {
           maxwidth = 50,
           ellipsis_char = '...',
           menu = {
-            buffer = '⌊BUF⌉',
-            nvim_lsp = '⌊LSP⌉',
-            path = '⌊PATH⌉',
-            vsnip = '⌊SNIP⌉',
+            buffer = '[BUF]',
+            nvim_lsp = '[LSP]',
+            path = '[PATH]',
+            luasnip = '[SNIP]',
           },
         },
       },
       snippet = {
         expand = function(args)
-          vim.fn['vsnip#anonymous'](args.body)
+          require('luasnip').lsp_expand(args.body)
         end,
       },
       mapping = cmp.mapping.preset.insert {
@@ -58,8 +61,8 @@ return {
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-          elseif vim.fn['vsnip#available'](1) == 1 then
-            feedkey('<Plug>(vsnip-expand-or-jump)', '')
+          elseif luasnip.expand_or_jumpable() then
+            luasnip.expand_or_jump()
           elseif has_words_before() then
             cmp.complete()
           else
@@ -70,8 +73,8 @@ return {
         ['<S-Tab>'] = cmp.mapping(function()
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif vim.fn['vsnip#jumpable'](-1) == 1 then
-            feedkey('<Plug>(vsnip-jump-prev)', '')
+          elseif luasnip.jumpable(-1) then
+            luasnip.jump(-1)
           end
         end, { 'i', 's' }),
 
@@ -95,7 +98,7 @@ return {
       },
       sources = cmp.config.sources {
         { name = 'nvim_lsp' },
-        { name = 'vsnip' },
+        { name = 'luasnip' },
         { name = 'buffer' },
         { name = 'path' },
       }
