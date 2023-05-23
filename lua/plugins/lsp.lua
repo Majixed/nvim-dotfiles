@@ -7,7 +7,10 @@ return {
     'hrsh7th/cmp-cmdline',
     'hrsh7th/nvim-cmp',
     'saadparwaiz1/cmp_luasnip',
-    'L3MON4D3/LuaSnip',
+    {
+      'L3MON4D3/LuaSnip',
+      build = 'make install_jsregexp'
+    },
     'folke/neodev.nvim',
     'onsails/lspkind.nvim',
     'windwp/nvim-autopairs',
