@@ -214,7 +214,7 @@ return {
     ins_inactive_left {
       'filename',
       cond = conditions.buffer_not_empty,
-      color = { fg = colors.gray, gui = 'bold' },
+      color = { fg = colors.magenta },
     }
 
     require('lualine').setup(config)
