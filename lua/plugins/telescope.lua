@@ -17,6 +17,12 @@ return {
   config = function()
     require('telescope').setup {
       defaults = {
+        prompt_prefix = '   ',
+        selection_caret = '  ',
+        sorting_strategy = 'ascending',
+        layout_config = {
+          prompt_position = 'top',
+        },
         vimgrep_arguments = {
           'rg',
           '--color=never',
@@ -51,7 +57,6 @@ return {
       TelescopeMatching = { fg = colors.pink },
       TelescopeSelection = { fg = colors.fg, bg = colors.gray, bold = true },
 
-      TelescopePromptPrefix = { bg = colors.gray },
       TelescopePromptNormal = { bg = colors.gray },
       TelescopeResultsNormal = { bg = colors.bg },
       TelescopePreviewNormal = { bg = colors.bg },
