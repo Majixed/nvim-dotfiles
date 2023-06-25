@@ -19,6 +19,8 @@ vim.o.showmatch = true
 vim.o.expandtab = true
 
 vim.o.cursorlineopt = 'number'
+vim.o.mouse = 'a'
+
 vim.o.shiftwidth = 2
 vim.o.tabstop = 2
-vim.o.mouse = 'a'
+vim.o.scrolloff = 5
