@@ -1,6 +1,8 @@
 return {
   'neovim/nvim-lspconfig',
   dependencies = {
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
@@ -29,6 +31,15 @@ return {
     end
 
     require('neodev').setup {}
+    require('mason').setup {}
+    require('mason-lspconfig').setup {
+      ensure_installed = {
+        'texlab',
+        'pyright',
+        'vimls',
+        'lua_ls',
+      }
+    }
 
     cmp.event:on(
       'confirm_done',
