@@ -16,10 +16,7 @@ return {
         'latex',
         'markdown',
         'markdown_inline',
-        'regex',
-        'rst',
         'json',
-        'make',
       },
       highlight = {
         enable = true,
