@@ -8,6 +8,9 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-vsnip',
+    'hrsh7th/vim-vsnip',
+    'rafamadriz/friendly-snippets',
     'folke/neodev.nvim',
     'onsails/lspkind.nvim',
     'windwp/nvim-autopairs',
@@ -41,6 +44,11 @@ return {
     )
 
     cmp.setup {
+      snippet = {
+        expand = function(args)
+          vim.fn['vsnip#anonymous'](args.body)
+        end,
+      },
       formatting = {
         format = lspkind.cmp_format {
           mode = 'symbol_text',
@@ -49,6 +57,7 @@ return {
           menu = {
             buffer = '[BUF]',
             nvim_lsp = '[LSP]',
+            vsnip = '[SNIP]',
             path = '[PATH]',
           },
         },
@@ -98,6 +107,7 @@ return {
       },
       sources = cmp.config.sources {
         { name = 'nvim_lsp' },
+        { name = 'vsnip' },
         { name = 'buffer' },
         { name = 'path' },
       }
@@ -124,7 +134,7 @@ return {
 
     lspconfig.pyright.setup { capabilities = capabilities }
     lspconfig.vimls.setup { capabilities = capabilities }
-    lspconfig.texlab.setup{ capabilities = capabilities }
+    lspconfig.texlab.setup { capabilities = capabilities }
     lspconfig.lua_ls.setup(lua_ls_config)
   end
 }
