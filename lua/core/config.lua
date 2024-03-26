@@ -1,7 +1,8 @@
 vim.g.mapleader = ' '
 
-vim.g.python3_host_prog = 'C:/ProgramData/chocolatey/bin/python3.12.exe'
+vim.g.python3_host_prog = vim.fn.exepath('python')
 
+vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 
@@ -24,7 +25,11 @@ vim.o.shiftwidth = 2
 vim.o.tabstop = 2
 vim.o.scrolloff = 5
 
-vim.o.shell = 'powershell'
+if vim.fn.executable('pwsh') == 1 then
+  vim.o.shell = 'pwsh'
+else
+  vim.o.shell = 'powershell'
+end
 vim.o.shellcmdflag = '-command'
 vim.o.shellquote = '\"'
 vim.o.shellxquote = ''
